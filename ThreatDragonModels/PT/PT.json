@@ -624,6 +624,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -707,7 +708,6 @@
               ]
             },
             "id": "6cd5b718-7902-477b-a961-cad83ad0a244",
-            "zIndex": 4,
             "data": {
               "type": "tm.Actor",
               "name": "Backend app",
@@ -741,6 +741,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -824,7 +825,6 @@
               ]
             },
             "id": "73dae06b-e02c-4875-8f99-a1915b069172",
-            "zIndex": 5,
             "data": {
               "type": "tm.Actor",
               "name": "REST API",
@@ -858,6 +858,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -941,7 +942,6 @@
               ]
             },
             "id": "8315c184-98ef-4db4-a2fb-3c03a4f29789",
-            "zIndex": 6,
             "data": {
               "type": "tm.Actor",
               "name": "Auth server",
@@ -975,6 +975,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 7,
             "ports": {
               "groups": {
                 "top": {
@@ -1058,7 +1059,6 @@
               ]
             },
             "id": "3f4bbb32-92df-456b-a4c8-b255838ff264",
-            "zIndex": 7,
             "data": {
               "type": "tm.Actor",
               "name": "Front app",
@@ -1092,6 +1092,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 8,
             "ports": {
               "groups": {
                 "top": {
@@ -1175,7 +1176,6 @@
               ]
             },
             "id": "4fbe4242-db39-4d4e-a59d-6cce6576d051",
-            "zIndex": 8,
             "data": {
               "type": "tm.Process",
               "name": "Microfront",
@@ -1189,6 +1189,51 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              ""
+            ],
+            "id": "3dadda20-7c0c-4cfe-8dc2-c5cec9724770",
+            "source": {
+              "x": 283,
+              "y": 350
+            },
+            "target": {
+              "cell": "73dae06b-e02c-4875-8f99-a1915b069172",
+              "port": "1acdffad-f8e0-4f1c-abc6-6a8afbb2b932"
             }
           }
         ]
