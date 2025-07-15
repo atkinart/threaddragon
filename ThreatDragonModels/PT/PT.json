@@ -980,6 +980,61 @@
                   "name": "block"
                 },
                 "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "https",
+              "threats": []
+            },
+            "labels": [
+              ""
+            ],
+            "id": "2b3de7ce-b143-4eab-904c-1e8aaf5084a6",
+            "source": {
+              "cell": "facdd650-eca7-49e0-ab97-212e52fa0c52",
+              "port": "e8477c4d-4df6-41e7-b045-feeee1aca849"
+            },
+            "target": {
+              "cell": "4fbe4242-db39-4d4e-a59d-6cce6576d051",
+              "port": "18d6a0d8-8558-42d0-8afd-d413dc1037d4"
+            },
+            "vertices": [
+              {
+                "x": 620,
+                "y": 310
+              },
+              {
+                "x": 645,
+                "y": 270
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
                   "name": ""
                 },
                 "strokeDasharray": null
@@ -1059,8 +1114,8 @@
             ],
             "id": "6c90dd41-dd02-4ac3-a0e1-8f44a068bce5",
             "source": {
-              "x": 250,
-              "y": 330
+              "cell": "c655dee5-1373-4de6-8379-3601918287b4",
+              "port": "416192e7-c0d2-4c31-9724-80278496b0b1"
             },
             "target": {
               "cell": "1fcec2b5-1990-4c5f-9d29-a207ec7a98f7",
@@ -1072,71 +1127,6 @@
                 "y": 300
               }
             ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": "block"
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": true,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "https",
-              "threats": []
-            },
-            "labels": [
-              ""
-            ],
-            "id": "2b3de7ce-b143-4eab-904c-1e8aaf5084a6",
-            "source": {
-              "cell": "facdd650-eca7-49e0-ab97-212e52fa0c52",
-              "port": "e8477c4d-4df6-41e7-b045-feeee1aca849"
-            },
-            "target": {
-              "cell": "4fbe4242-db39-4d4e-a59d-6cce6576d051",
-              "port": "18d6a0d8-8558-42d0-8afd-d413dc1037d4"
-            },
-            "vertices": [
-              {
-                "x": 620,
-                "y": 310
-              },
-              {
-                "x": 645,
-                "y": 270
-              }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
           },
           {
             "position": {
