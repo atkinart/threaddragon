@@ -242,7 +242,62 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+          "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "title": "Spoofing On-Prem Storage",
+          "type": "Spoofing",
+          "description": "Подделка запросов к локальному хранилищу от Backend App, пересекающих границу доверия в Object storage layer zone.",
+          "mitigation": "Внедрить строгую аутентификацию (например, API-ключи или сертификаты) для доступа к хранилищу.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "b2c3d4e5-f6a7-8901-bcde-f2345678901",
+          "title": "Tampering with On-Prem Storage",
+          "type": "Tampering",
+          "description": "Несанкционированное изменение файлов в локальном хранилище через поток 4 от Backend App.",
+          "mitigation": "Использовать контроль целостности (например, хэши SHA-256), настроить ограничения доступа на уровне ОС.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "c3d4e5f6-a7b8-9012-cdef-3456789012",
+          "title": "Repudiation in On-Prem Storage",
+          "type": "Repudiation",
+          "description": "Отрицание операций записи/чтения в локальном хранилище.",
+          "mitigation": "Внедрить журналирование операций с хранилищем, включая идентификаторы запросов.",
+          "severity": "Low",
+          "status": "Open"
+        },
+        {
+          "id": "d4e5f6a7-b8c9-0123-def0-4567890123",
+          "title": "Information Disclosure from On-Prem Storage",
+          "type": "Information Disclosure",
+          "description": "Утечка данных из локального хранилища из-за нешифрованного потока 4 или физического доступа к серверу.",
+          "mitigation": "Шифровать данные на диске (например, с помощью dm-crypt), использовать TLS для потока 4, ограничить физический доступ к серверу.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "e5f6a7b8-c9d0-1234-ef01-5678901234",
+          "title": "Denial of Service on On-Prem Storage",
+          "type": "Denial of Service",
+          "description": "Перегрузка локального сервера хранилища запросами или физическое воздействие (например, отключение питания).",
+          "mitigation": "Настроить лимиты запросов, обеспечить резервирование питания и отказоустойчивость сервера.",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "f6a7b8c9-d0e1-2345-f012-6789012345",
+          "title": "Elevation of Privilege in On-Prem Storage",
+          "type": "Elevation of Privilege",
+          "description": "Эксплуатация уязвимостей ОС или ПО хранилища для получения несанкционированного доступа.",
+          "mitigation": "Регулярно обновлять ПО сервера, применять принцип минимальных привилегий.",
+          "severity": "High",
+          "status": "Open"
+        }
+              ]
             }
           },
           {
@@ -366,7 +421,35 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+          "id": "a7b8c9d0-e1f2-3456-0123-7890123456",
+          "title": "Tampering with postgres",
+          "type": "Tampering",
+          "description": "SQL-инъекция через поток 5 от Backend App к postgres.",
+          "mitigation": "Использовать параметризованные запросы, ограничить права доступа к базе.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "b8c9d0e1-f2a3-4567-1234-8901234567",
+          "title": "Information Disclosure from postgres",
+          "type": "Information Disclosure",
+          "description": "Утечка данных из postgres из-за нешифрованного потока 5 или неправильных настроек.",
+          "mitigation": "Шифровать данные в базе (pgcrypto), использовать TLS для потока 5.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "c9d0e1f2-a3b4-5678-2345-9012345678",
+          "title": "Denial of Service on postgres",
+          "type": "Denial of Service",
+          "description": "Перегрузка postgres запросами, влияющая на доступность.",
+          "mitigation": "Настроить репликацию базы и лимиты соединений.",
+          "severity": "Medium",
+          "status": "Open"
+        }
+              ]
             }
           },
           {
@@ -483,7 +566,34 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+          "id": "d0e1f2a3-b4c5-6789-3456-0123456789",
+          "title": "Spoofing Discord API",
+          "type": "Spoofing",
+          "description": "Подделка ответов от API Discord на запросы Backend App через публичную сеть.",
+          "mitigation": "Проверять подлинность ответов от Discord API, использовать HTTPS с проверкой сертификатов.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "e1f2a3b4-c5d6-7890-4567-1234567890",
+          "title": "Repudiation by Discord API",
+          "type": "Repudiation",
+          "description": "Отрицание получения запросов от Backend App или отправки ответов.",
+          "mitigation": "Журналировать исходящие запросы и ответы от Discord API с временными метками и идентификаторами.",
+          "severity": "Low",
+          "status": "Open"
+        },
+        {
+          "id": "f2a3b4c5-d6e7-8901-5678-2345678901",
+          "title": "Information Disclosure from Discord API",
+          "type": "Information Disclosure",
+          "description": "Утечка данных из ответов Discord API, если они содержат конфиденциальную информацию.",
+          "mitigation": "Минимизировать объем данных в ответах от Discord, проверить конфигурацию TLS в потоке 8.",
+          "severity": "Medium",
+          "status": "Open"
+        }]
             }
           },
           {
@@ -600,7 +710,35 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+          "id": "a3b4c5d6-e7f8-9012-6789-3456789012",
+          "title": "Spoofing Telegram API",
+          "type": "Spoofing",
+          "description": "Подделка ответов от Telegram Bot API на запросы Backend App через публичную сеть.",
+          "mitigation": "Проверять подлинность ответов от Telegram API, использовать HTTPS с проверкой сертификатов.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "b4c5d6e7-f8a9-0123-7890-4567890123",
+          "title": "Repudiation by Telegram API",
+          "type": "Repudiation",
+          "description": "Отрицание получения запросов от Backend App или отправки ответов.",
+          "mitigation": "Журналировать исходящие запросы и ответы от Telegram API с временными метками и идентификаторами.",
+          "severity": "Low",
+          "status": "Open"
+        },
+        {
+          "id": "c5d6e7f8-a9b0-1234-8901-5678901234",
+          "title": "Information Disclosure from Telegram API",
+          "type": "Information Disclosure",
+          "description": "Утечка данных из ответов Telegram API, если они содержат конфиденциальную информацию.",
+          "mitigation": "Минимизировать объем данных в ответах от Telegram, проверить конфигурацию TLS в потоке 7.",
+          "severity": "Medium",
+          "status": "Open"
+        }
+              ]
             }
           },
           {
@@ -720,7 +858,62 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+          "id": "d6e7f8a9-b0c1-2345-9012-6789012345",
+          "title": "Spoofing Microfront",
+          "type": "Spoofing",
+          "description": "Злоумышленник может подделать запросы от Microfront к REST API, пересекающие границу доверия (Front -> Backend).",
+          "mitigation": "Использовать токены аутентификации (например, JWT) с проверкой подлинности на стороне REST API. Учитывая isEncrypted: true и protocol: https для потока 6, убедиться в правильной реализации TLS.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "e7f8a9b0-c1d2-3456-0123-7890123456",
+          "title": "Tampering with Microfront",
+          "type": "Tampering",
+          "description": "Изменение входных данных в клиентском коде Microfront (например, через DevTools).",
+          "mitigation": "Валидировать и санировать входные данные на стороне REST API.",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "f8a9b0c1-d2e3-4567-1234-8901234567",
+          "title": "Repudiation in Microfront",
+          "type": "Repudiation",
+          "description": "Действия пользователя через Microfront не могут быть однозначно привязаны к нему.",
+          "mitigation": "Журналировать запросы с временными метками и идентификаторами сессий на стороне Backend.",
+          "severity": "Low",
+          "status": "Open"
+        },
+        {
+          "id": "a9b0c1d2-e3f4-5678-2345-9012345678",
+          "title": "Information Disclosure in Microfront",
+          "type": "Information Disclosure",
+          "description": "Утечка конфиденциальных данных через XSS-атаки в Microfront.",
+          "mitigation": "Использовать заголовки Content-Security-Policy и защиту от XSS. Поток 6 зашифрован, что снижает риск перехвата данных.",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "b0c1d2e3-f4a5-6789-3456-0123456789",
+          "title": "Denial of Service on Microfront",
+          "type": "Denial of Service",
+          "description": "Перегрузка Microfront множеством запросов, влияющая на зону Front.",
+          "mitigation": "Настроить ограничение частоты запросов (rate limiting) на стороне REST API.",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "c1d2e3f4-a5b6-7890-4567-1234567890",
+          "title": "Elevation of Privilege in Microfront",
+          "type": "Elevation of Privilege",
+          "description": "Эксплуатация уязвимостей в коде Microfront для получения несанкционированного доступа.",
+          "mitigation": "Регулярно обновлять зависимости и проводить аудит кода.",
+          "severity": "High",
+          "status": "Open"
+        }
+              ]
             }
           },
           {
@@ -1245,7 +1438,62 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+          "id": "d2e3f4a5-b6c7-8901-5678-2345678901",
+          "title": "Spoofing Backend App",
+          "type": "Spoofing",
+          "description": "Подделка ответов от Telegram или Discord API, принимаемых Backend App, или запросов к Auth server, REST API, On-Prem Storage.",
+          "mitigation": "Проверять подлинность ответов от Telegram/Discord API, использовать сертификаты или API-ключи для внутренних сервисов.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "e3f4a5b6-c7d8-9012-6789-3456789012",
+          "title": "Tampering with Backend App",
+          "type": "Tampering",
+          "description": "Манипуляция данными, отправляемыми в On-Prem Storage, postgres, Telegram или Discord.",
+          "mitigation": "Валидировать данные на сервере, использовать цифровые подписи. Для потоков 7 и 8 (Telegram, Discord) обеспечить проверку целостности через HTTPS.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "f4a5b6c7-d8e9-0123-7890-4567890123",
+          "title": "Repudiation in Backend App",
+          "type": "Repudiation",
+          "description": "Отрицание отправленных запросов в Telegram, Discord, On-Prem Storage или postgres.",
+          "mitigation": "Внедрить подробное журналирование с идентификаторами сессий и временными метками.",
+          "severity": "Low",
+          "status": "Open"
+        },
+        {
+          "id": "a5b6c7d8-e9f0-1234-8901-5678901234",
+          "title": "Information Disclosure in Backend App",
+          "type": "Information Disclosure",
+          "description": "Утечка токенов API Telegram/Discord или других данных при отправке через потоки 7 и 8 (публичная сеть) или нешифрованные потоки 1, 3, 4, 5.",
+          "mitigation": "Использовать TLS для всех соединений, хранить токены API в безопасной среде (например, secrets manager), минимизировать данные в запросах.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "b6c7d8e9-f0a1-2345-9012-6789012345",
+          "title": "Denial of Service on Backend App",
+          "type": "Denial of Service",
+          "description": "Перегрузка Backend App из-за ошибок обработки ответов Telegram/Discord или внутренних запросов.",
+          "mitigation": "Настроить балансировку нагрузки, лимиты запросов и таймауты для внешних API.",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "c7d8e9f0-a1b2-3456-0123-7890123456",
+          "title": "Elevation of Privilege in Backend App",
+          "type": "Elevation of Privilege",
+          "description": "Компрометация токенов Telegram/Discord API или уязвимости Backend для получения повышенных привилегий.",
+          "mitigation": "Применять принцип минимальных привилегий, хранить токены в безопасной среде, проводить аудит кода.",
+          "severity": "High",
+          "status": "Open"
+        }
+              ]
             }
           },
           {
@@ -1365,7 +1613,60 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [{
+          "id": "d8e9f0a1-b2c3-4567-1234-8901234567",
+          "title": "Spoofing REST API",
+          "type": "Spoofing",
+          "description": "Подделка запросов к REST API из зоны Front или внешних источников.",
+          "mitigation": "Использовать JWT или API-ключи с проверкой подлинности. Поток 6 использует HTTPS, что снижает риск.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "e9f0a1b2-c3d4-5678-2345-9012345678",
+          "title": "Tampering with REST API",
+          "type": "Tampering",
+          "description": "Изменение параметров запросов к REST API.",
+          "mitigation": "Валидировать и санировать входные данные на сервере. HTTPS в потоке 6 обеспечивает защиту.",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "f0a1b2c3-d4e5-6789-3456-0123456789",
+          "title": "Repudiation in REST API",
+          "type": "Repudiation",
+          "description": "Отрицание запросов к REST API, особенно из зоны Front.",
+          "mitigation": "Журналировать запросы с идентификаторами сессий.",
+          "severity": "Low",
+          "status": "Open"
+        },
+        {
+          "id": "a1b2c3d4-e5f6-7890-4567-1234567890",
+          "title": "Information Disclosure in REST API",
+          "type": "Information Disclosure",
+          "description": "Утечка данных через REST API из-за ошибок конфигурации, несмотря на HTTPS в потоке 6.",
+          "mitigation": "Ограничить возвращаемые данные до необходимого минимума, проверить конфигурацию TLS.",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "b2c3d4e5-f6a7-8901-5678-2345678901",
+          "title": "Denial of Service on REST API",
+          "type": "Denial of Service",
+          "description": "Перегрузка REST API запросами из зоны Front.",
+          "mitigation": "Настроить лимиты запросов и защиту от DDoS (например, с помощью WAF).",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "c3d4e5f6-a7b8-9012-6789-3456789012",
+          "title": "Elevation of Privilege in REST API",
+          "type": "Elevation of Privilege",
+          "description": "Эксплуатация уязвимостей REST API для несанкционированного доступа.",
+          "mitigation": "Регулярное тестирование на проникновение, обновление ПО.",
+          "severity": "High",
+          "status": "Open"
+        }]
             }
           },
           {
@@ -1485,7 +1786,60 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [{
+          "id": "d4e5f6a7-b8c9-0123-7890-4567890123",
+          "title": "Spoofing Auth server",
+          "type": "Spoofing",
+          "description": "Подделка запросов к Auth server от Backend App.",
+          "mitigation": "Использовать сертификаты или OAuth-токены для проверки подлинности.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "e5f6a7b8-c9d0-1234-8901-5678901234",
+          "title": "Tampering with Auth server",
+          "type": "Tampering",
+          "description": "Изменение данных аутентификации в потоке между Auth server и Backend App.",
+          "mitigation": "Проверять целостность данных, использовать цифровые подписи. Включить TLS для потока 1.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "f6a7b8c9-d0e1-2345-9012-6789012345",
+          "title": "Repudiation in Auth server",
+          "type": "Repudiation",
+          "description": "Отрицание аутентификационных запросов.",
+          "mitigation": "Журналировать запросы с временными метками и идентификаторами.",
+          "severity": "Low",
+          "status": "Open"
+        },
+        {
+          "id": "a7b8c9d0-e1f2-3456-0123-7890123456",
+          "title": "Information Disclosure in Auth server",
+          "type": "Information Disclosure",
+          "description": "Утечка учетных данных из-за нешифрованного потока 1.",
+          "mitigation": "Включить TLS для всех соединений Auth server.",
+          "severity": "High",
+          "status": "Open"
+        },
+        {
+          "id": "b8c9d0e1-f2a3-4567-1234-8901234567",
+          "title": "Denial of Service on Auth server",
+          "type": "Denial of Service",
+          "description": "Перегрузка Auth server запросами, влияющая на зону Backend.",
+          "mitigation": "Настроить лимиты соединений и балансировку нагрузки.",
+          "severity": "Medium",
+          "status": "Open"
+        },
+        {
+          "id": "c9d0e1f2-a3b4-5678-2345-9012345678",
+          "title": "Elevation of Privilege in Auth server",
+          "type": "Elevation of Privilege",
+          "description": "Эксплуатация уязвимостей Auth server для получения доступа.",
+          "mitigation": "Применять принцип минимальных привилегий, проводить аудит безопасности.",
+          "severity": "High",
+          "status": "Open"
+        }]
             }
           },
           {
