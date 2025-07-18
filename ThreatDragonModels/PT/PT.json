@@ -601,7 +601,45 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "495ee222-66fa-49ff-b223-62ae1914e363",
+                  "title": "Подмена токенов API ",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Описание: Злоумышленник использует скомпрометированные или поддельные токены API для отправки запросов от имени backend-сервиса.\nПоследствия: Несанкционированная отправка сообщений, компрометация каналов Discord.",
+                  "mitigation": "Хранить токены API в защищенном секретохранилище (например, HashiCorp Vault).\nИспользовать ротацию токенов и ограничение их области действия (scopes).\nПроверять подлинность токенов на стороне Discord(например, через подписи вебхуков).\nОграничить доступ к токенам на уровне backend (chmod, chown).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": "7"
+                },
+                {
+                  "id": "250c74a0-e161-45a5-96fc-b404f9492f4e",
+                  "title": "Манипуляция логами запросов",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Описание: Злоумышленник с доступом к backend изменяет или удаляет логи запросов к Discord API, чтобы скрыть свои действия.\nПоследствия: Сокрытие следов атаки, затруднение расследования.",
+                  "mitigation": "Отправлять логи в защищенное хранилище (SIEM) в реальном времени.\nОграничить доступ к логам (RBAC, chmod, chown).\nИспользовать контроль целостности логов (например, хеширование).\n\n\n\nМониторить изменения логов для выявления аномалий.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 1
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1985,13 +2023,6 @@
                 "denialOfService": 1,
                 "elevationOfPrivilege": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           }
         ]
@@ -1999,6 +2030,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 30
+    "threatTop": 33
   }
 }
